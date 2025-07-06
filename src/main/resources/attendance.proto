@@ -1,3 +1,30 @@
 syntax = "proto3";
 
+option java_multiple_files = true;
+package com.school.whiteboard;
+
+service Attendance {
+  // Mark student present
+  rpc MarkPresent (Student) returns (Response);
+
+  // Get today's attendance
+  rpc GetTodayAttendance (EmptyRequest) returns (AttendanceList);
+}
+
+// Request/Response messages
+message EmptyRequest {}  // Replaces generic Empty
+
+message Student {
+  string id = 1;  // Student ID
+  string name = 2;
+}
+
+message Response {
+  bool success = 1;
+  string message = 2;
+}
+
+message AttendanceList {
+  repeated Student present_students = 1;
+
 

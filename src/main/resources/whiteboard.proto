@@ -1,21 +1,27 @@
 syntax = "proto3";
 
-option java_package = "com.smartclassroomservices.grpc";
+option java_multiple_files = true;
+package com.school.whiteboard;
 
 service Whiteboard {
-    rpc UploadNotes (Note) returns (UploadStatus);
-    rpc DownloadNotes (NoteRequest) returns (stream Note);
+    // note saving
+    rpc SaveNote (Note) returns (Response);
+
+    // Get notes
+    rpc GetNotes (Empty) returns (stream Note);
 }
 
 message Note {
-    string note_id = 1;
-    string content = 2;
+    string text = 1;  // The note content
+    string author = 2; // Teacher/student name
 }
 
-message UploadStatus {
+message Response {
     bool success = 1;
-    string file_url = 2;
+    string message = 2;
 }
+
+message Empty {}
 
 
 
