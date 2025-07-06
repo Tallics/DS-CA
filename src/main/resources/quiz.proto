@@ -12,7 +12,7 @@ service Quiz {
 }
 
 // Empty request message
-message EmptyRequest {} // Datatype: No fields.
+message EmptyRequest {}
 
 message QuizQuestions {
   repeated string questions = 1;  // Simple text questions. Datatype: List of Strings
