@@ -1,3 +1,19 @@
 syntax = "proto3";
 
+option java_package = "com.smartclassroomservices.grpc";
+
+service Whiteboard {
+    rpc UploadNotes (Note) returns (UploadStatus);  
+    rpc DownloadNotes (NoteRequest) returns (stream Note);  
+}
+
+message Note {
+    string note_id = 1;  
+    string content = 2;   
+}
+
+message UploadStatus {
+    bool success = 1;  
+    string file_url = 2;  
+}
 

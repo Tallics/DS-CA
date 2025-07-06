@@ -40,6 +40,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>clean generate-sources compile install</defaultGoal>
         <extensions>
             <extension>
                 <groupId>kr.motd.maven</groupId>
