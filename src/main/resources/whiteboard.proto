@@ -1,27 +1,24 @@
 syntax = "proto3";
 
+option java_package = "ds.service1";
 option java_multiple_files = true;
-package com.school.whiteboard;
 
 service Whiteboard {
     // note saving
     rpc SaveNote (Note) returns (Response);
 
-    // Get notes
-    rpc GetNotes (Empty) returns (stream Note);
+    // Get all notes
+    rpc GetNotes (Empty) returns (stream Note); // Client will receive multiple Note messages
 }
 
 message Note {
-    string text = 1;  // The note content
-    string author = 2; // Teacher/student name
+    string text = 1;   // The note content. Datatype: String
+    string author = 2; // Teacher/Student name. Datatype: String
 }
 
 message Response {
-    bool success = 1;
-    string message = 2;
+    bool success = 1;  // True if the operation was successful. Datatype: Boolean
+    string message = 2; // A status message. Datatype: String
 }
 
-message Empty {}
-
-
-
+message Empty {} // Used for requests that don't need any parameters.

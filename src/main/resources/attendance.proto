@@ -1,7 +1,7 @@
 syntax = "proto3";
 
+option java_package = "ds.service2";
 option java_multiple_files = true;
-package com.school.whiteboard;
 
 service Attendance {
   // Mark student present
@@ -12,19 +12,22 @@ service Attendance {
 }
 
 // Request/Response messages
-message EmptyRequest {}  // Replaces generic Empty
+message EmptyRequest {}  // Replaces generic Empty. Datatype: No fields.
 
 message Student {
-  string id = 1;  // Student ID
-  string name = 2;
+  string id = 1;   // Student ID. Datatype: String
+  string name = 2; // Student Name. Datatype: String
 }
 
 message Response {
-  bool success = 1;
-  string message = 2;
+  bool success = 1;  // True if the operation was successful. Datatype: Boolean
+  string message = 2; // A status message. Datatype: String
 }
 
 message AttendanceList {
+  repeated Student present_students = 1; // List of students marked present. Datatype: List of Student messages
+}
+message AttendanceList {
   repeated Student present_students = 1;
-
+}
 

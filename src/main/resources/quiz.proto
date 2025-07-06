@@ -1,7 +1,7 @@
 syntax = "proto3";
 
+option java_package = "ds.service3";
 option java_multiple_files = true;
-package com.school.whiteboard;
 
 service Quiz {
   // Generate a simple quiz
@@ -12,18 +12,18 @@ service Quiz {
 }
 
 // Empty request message
-message EmptyRequest {}
+message EmptyRequest {} // Datatype: No fields.
 
 message QuizQuestions {
-  repeated string questions = 1;  // Simple text questions
-  repeated string answers = 2;    // Correct answers
+  repeated string questions = 1;  // Simple text questions. Datatype: List of Strings
+  repeated string answers = 2;    // Correct answers (parallel to questions). Datatype: List of Strings
 }
 
 message AnswerSheet {
-  repeated string student_answers = 1;
+  repeated string student_answers = 1; // Student's answers (parallel to quiz questions). Datatype: List of Strings
 }
 
 message QuizResult {
-  int32 score = 1;  // Number of correct answers
-  string feedback = 2; // Simple feedback
+  int32 score = 1;   // Number of correct answers. Datatype: Integer
+  string feedback = 2; // Simple feedback message. Datatype: String
 }
